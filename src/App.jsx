@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { RecoilRoot } from 'recoil'; // RecoilRoot를 추가하여 Recoil 상태를 전역적으로 관리합니다
 
 // pages
 import MainPage from './pages/MainPage/MainPage';
@@ -16,9 +17,13 @@ import Register from './pages/Receiver/Register';
 
 import DonatePage from './pages/Donator/DonatePage';
 
+//components (Recoil managed)
+/* import PascalCase from './recoilComponents/컴포넌트명*/
+
 function App() {
     return (
-        <div>
+        <RecoilRoot>
+            <div>
             <Routes>
                 {/* 메인페이지 */}
                 <Route index element={<MainPage />} />
@@ -40,7 +45,10 @@ function App() {
                 {/* Donator 페이지 */}
                 <Route path="/donatepage" element={<DonatePage />} />
             </Routes>
+            {/* <PascalCase /> */}
         </div>
+        </RecoilRoot>
+
     );
 }
 
