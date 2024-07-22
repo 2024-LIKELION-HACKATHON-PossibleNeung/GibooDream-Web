@@ -18,7 +18,7 @@ import Register from './pages/Receiver/Register';
 import DonatePage from './pages/Donator/DonatePage';
 
 //components (Recoil managed)
-/* import PascalCase from './recoilComponents/컴포넌트명*/
+/* import PascalCase from './pages/Login/components/컴포넌트폴더명/컴포넌트명*/ 
 
 function App() {
     return (
