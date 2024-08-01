@@ -4,9 +4,7 @@ import { RecoilRoot } from 'recoil'; // RecoilRoot를 추가하여 Recoil 상태
 // pages
 import MainPage from './pages/MainPage/MainPage';
 
-import JustLogined from './pages/UpperMenu/JustLogined';
-import NotLogined from './pages/UpperMenu/NotLogined';
-import ReceiverLogined from './pages/UpperMenu/ReceiverLogined';
+import UpperMenu from './pages/UpperMenu/UpperMenu'
 
 import Login from './pages/Login/Login';
 import SignUp from './pages/Login/SignUp';
@@ -29,9 +27,7 @@ function App() {
                 <Route index element={<MainPage />} />
 
                 {/* 상위메뉴 페이지 (UpperMenu) */}
-                <Route path="/justlogined" element={<JustLogined />} />
-                <Route path="/notlogined" element={<NotLogined />} />
-                <Route path="/receiverlogined" element={<ReceiverLogined />} />
+                <Route path="/uppermenu" element={<UpperMenu />} />
 
                 {/* 로그인, 회원가입 페이지 */}
                 <Route path="/login" element={<Login />} />
