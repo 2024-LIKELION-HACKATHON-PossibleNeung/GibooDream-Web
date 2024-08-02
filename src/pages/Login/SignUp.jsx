@@ -4,8 +4,8 @@ import EmailInsertBox from "./components/SignUp/SignUpInsertBox";
 import NickNameInsertBox from "./components/SignUp/SignUpInsertBox";
 import PassWordInsertBox from "./components/SignUp/SignUpInsertBox";
 import PassWordCheckInsertBox from "./components/SignUp/SignUpInsertBox";
-import IdentifyButton from "../../components/BigButtonBlack";
-import SignUpDoneButton from "../../components/BigButtonBlack";
+import IdentifyButton from "./components/SignUp/BigRedButton"
+import SignUpDoneButton from "./components/SignUp/BigRedButton";
 
 const SignUp = () => {
     const [userType, setUserType] = useState("");

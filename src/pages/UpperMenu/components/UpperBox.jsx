@@ -3,6 +3,7 @@ import styled from "styled-components";
 const UpperBox = () => {
     return (
         <Container>
+            <CloseButton><img src="../../../src/assets/images/UpperModalClose.svg" alt="Close"/></CloseButton>
             <BigBox>
                 <UserInfo>
                     <Name>이름</Name>
@@ -37,6 +38,12 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
 `
+const CloseButton = styled.div`
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    margin-left: 15rem;
+`
 const Line = styled.div`
 `
 
@@ -46,7 +53,6 @@ const BigBox = styled.div`
     background-color: grey;
     height: 16vh;
     width: 17rem;
-    margin-top: 2rem;
     gap: 1rem;
     padding-top: 1.5rem;
 `

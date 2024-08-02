@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-const BigButtonBlack = ({ bigblacktext }) => {
+const KakaoLoginButton = ({ bigblacktext }) => {
     return (
         <Container>
             {bigblacktext}
@@ -12,13 +12,16 @@ const BigButtonBlack = ({ bigblacktext }) => {
 const Container = styled.div`
     display: flex;
     width: 17.75rem;
+    height: 2.8125rem;
     padding: 1rem 1.5rem;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    flex-shrink: 0;
+
     border-radius: 0.375rem;
-    background: var(--WF-Base-800, #2D3648);
-    color: var(--WF-Base-White, #FFF);
+    background: var(--WF-Base-800, #FEE500);
+    color: var(--WF-Base-White, black);
     font-feature-settings: 'calt' off;
 
     /* WF Buttons/Button Large */
@@ -30,4 +33,4 @@ const Container = styled.div`
     letter-spacing: -0.01125rem;
 `
 
-export default BigButtonBlack
+export default KakaoLoginButton

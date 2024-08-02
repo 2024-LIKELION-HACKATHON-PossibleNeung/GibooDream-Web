@@ -9,7 +9,6 @@ const SignUpInsertBox = () => {
     );
 };
 
-export default SignUpInsertBox;
 
 const Container = styled.div`
     width: 17.875rem;
@@ -19,3 +18,5 @@ const Container = styled.div`
     border: 1px solid var(--WF-Base-500, #A0ABC0);
     background: var(--WF-Base-100, #F7F9FC);
 `
+
+export default SignUpInsertBox;
