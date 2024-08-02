@@ -234,9 +234,10 @@ const AgreementContainer = styled.div`
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    width: 17.5rem;
     overflow-y: auto; /* 세로로 넘치는 내용 스크롤 가능 */
     margin-bottom: 2rem;
+    text-align: left;
 `;
 
 const SmallExplain = styled.div`
