@@ -8,24 +8,32 @@ import AttachFileButton from "./components/Register/AttachFileButton";
 import RegisterButton from "./components/Register/BigRedButton";
 
 const Register = () => {
-    const [userType, setUserType] = useState("");
     const [agreements, setAgreements] = useState({
-        over14: false,
-        termsOfService: false,
-        privacyPolicy: false,
-        marketing: false,
-        newsletter: false,
+        basicLivelihood: false,
+        singleParentFamily: false,
+        underfedChild: false,
+        aloneElderly: false,
+        personalinfo: false,
     });
     const [uploadedFile, setUploadedFile] = useState(null);
     const fileInputRef = useRef(null);
 
-    const handleUserTypeChange = (event) => {
-        setUserType(event.target.value);
+    const handleSingleAgreementChange = (event) => {
+        const { name } = event.target;
+        // 모든 항목을 false로 설정하고, 선택한 항목만 true로 설정
+        setAgreements({
+            basicLivelihood: false,
+            singleParentFamily: false,
+            underfedChild: false,
+            aloneElderly: false,
+            personalinfo: agreements.personalinfo, // 개인정보 수집 및 활용 항목은 유지
+            [name]: true,
+        });
     };
 
-    const handleAgreementChange = (event) => {
-        const { name, checked } = event.target;
-        setAgreements((prev) => ({ ...prev, [name]: checked }));
+    const handlePersonalInfoChange = (event) => {
+        const { checked } = event.target;
+        setAgreements((prev) => ({ ...prev, personalinfo: checked }));
     };
 
     const handleFileUpload = (event) => {
@@ -44,9 +52,12 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("선택된 사용자 타입:", userType);
-        console.log("동의 항목:", agreements);
-        console.log("업로드된 파일:", uploadedFile);
+        if (agreements.personalinfo) {
+            console.log("동의 항목:", agreements);
+            console.log("업로드된 파일:", uploadedFile);
+        } else {
+            alert("개인정보 수집 및 활용에 동의해 주세요.");
+        }
     };
 
     return (
@@ -58,39 +69,6 @@ const Register = () => {
                 <Title>꿈꾸미 등록</Title>
                 <FormContainerBig>
                     
-                    <SmallContainer>
-                        <Subtitle>*구분</Subtitle>
-                        <Form onSubmit={handleSubmit}>
-                            <Label>
-                                <input
-                                    type="radio"
-                                    value="personal"
-                                    checked={userType === "personal"}
-                                    onChange={handleUserTypeChange}
-                                />
-                                개인
-                            </Label>
-                            <Label>
-                                <input
-                                    type="radio"
-                                    value="company"
-                                    checked={userType === "company"}
-                                    onChange={handleUserTypeChange}
-                                />
-                                기업
-                            </Label>
-                            <Label>
-                                <input
-                                    type="radio"
-                                    value="foreigner"
-                                    checked={userType === "foreigner"}
-                                    onChange={handleUserTypeChange}
-                                />
-                                외국인
-                            </Label>
-                        </Form>
-                    </SmallContainer>
-
                     <SmallContainer>
                         <Subtitle>*이름</Subtitle>
                         <EmailInsertBox placeholder="이름을 입력하세요" />
@@ -123,48 +101,39 @@ const Register = () => {
                 <CheckboxContainer>
                     <Label>
                         <input
-                            type="checkbox"
-                            name="over14"
-                            checked={agreements.over14}
-                            onChange={handleAgreementChange}
+                            type="radio"
+                            name="basicLivelihood"
+                            checked={agreements.basicLivelihood}
+                            onChange={handleSingleAgreementChange}
                         />
-                        14세 이상입니다. (필수)
+                        기초생활수급자
                     </Label>
                     <Label>
                         <input
-                            type="checkbox"
-                            name="termsOfService"
-                            checked={agreements.termsOfService}
-                            onChange={handleAgreementChange}
+                            type="radio"
+                            name="singleParentFamily"
+                            checked={agreements.singleParentFamily}
+                            onChange={handleSingleAgreementChange}
                         />
-                        이지기부 이용약관 (필수)
+                        한부모가족
                     </Label>
                     <Label>
                         <input
-                            type="checkbox"
-                            name="privacyPolicy"
-                            checked={agreements.privacyPolicy}
-                            onChange={handleAgreementChange}
+                            type="radio"
+                            name="underfedChild"
+                            checked={agreements.underfedChild}
+                            onChange={handleSingleAgreementChange}
                         />
-                        개인정보 수집 및 이용 (필수)
+                        결식아동
                     </Label>
                     <Label>
                         <input
-                            type="checkbox"
-                            name="marketing"
-                            checked={agreements.marketing}
-                            onChange={handleAgreementChange}
+                            type="radio"
+                            name="aloneElderly"
+                            checked={agreements.aloneElderly}
+                            onChange={handleSingleAgreementChange}
                         />
-                        마케팅 개인정보 수집 및 이용 동의 (선택)
-                    </Label>
-                    <Label>
-                        <input
-                            type="checkbox"
-                            name="newsletter"
-                            checked={agreements.newsletter}
-                            onChange={handleAgreementChange}
-                        />
-                        뉴스레터, 소식지 등 홍보 수신 동의 (선택)
+                        독거노인
                     </Label>
                 </CheckboxContainer>
             </AgreementContainer>
@@ -197,12 +166,16 @@ const Register = () => {
                         type="checkbox"
                         name="personalinfo"
                         checked={agreements.personalinfo}
-                        onChange={handleAgreementChange}
+                        onChange={handlePersonalInfoChange}
                     />
                     개인정보 수집 및 활용에 동의합니다.
                 </Label>
             </LeftAlignContainer>
-            <RegisterButton text="회원가입" />
+            <RegisterButton
+                text="수혜자 신청"
+                onClick={handleSubmit}
+                disabled={!agreements.personalinfo}
+            />
         </Container>
     );
 };
@@ -249,15 +222,6 @@ const FormContainerBig = styled.div`
 const Subtitle = styled.div`
     font-size: 1rem;
     margin-bottom: 0.5rem;
-`;
-
-const Form = styled.form`
-    display: flex;
-    flex-direction: row; /* 라디오 버튼들을 한 줄로 정렬 */
-    gap: 1rem; /* 라디오 버튼 간 간격 조절 */
-    align-items: center; /* 세로 축에서 가운데 정렬 */
-    flex-wrap: wrap; /* 좁은 화면에서 줄바꿈 허용 */
-    justify-content: flex-start; /* 왼쪽 정렬 */
 `;
 
 const Label = styled.label`
@@ -329,4 +293,6 @@ const UploadedFileDeleteButton = styled.div`
     align-items: center;
     cursor: pointer; /* 커서 포인터 모양으로 변경 */
 `;
+
+
 
