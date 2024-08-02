@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-const BigRedButton = ({ text }) => {
+const MidRedButton = ({ text }) => {
     return (
         <Container>
             {text}
@@ -11,7 +11,7 @@ const BigRedButton = ({ text }) => {
 
 const Container = styled.div`
     display: flex;
-    width: 17.75rem;
+    width: 9.5rem;
     padding: 1rem 1.5rem;
     justify-content: center;
     align-items: center;
@@ -30,4 +30,4 @@ const Container = styled.div`
     letter-spacing: -0.01125rem;
 `
 
-export default BigRedButton
+export default MidRedButton

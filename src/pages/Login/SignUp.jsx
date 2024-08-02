@@ -4,7 +4,7 @@ import EmailInsertBox from "./components/SignUp/SignUpInsertBox";
 import NickNameInsertBox from "./components/SignUp/SignUpInsertBox";
 import PassWordInsertBox from "./components/SignUp/SignUpInsertBox";
 import PassWordCheckInsertBox from "./components/SignUp/SignUpInsertBox";
-import IdentifyButton from "./components/SignUp/BigRedButton"
+import IdentifyButton from "./components/SignUp/BigRedButton";
 import SignUpDoneButton from "./components/SignUp/BigRedButton";
 
 const SignUp = () => {
@@ -35,7 +35,7 @@ const SignUp = () => {
     return (
         <Container>
             <GibooDreamLogo>
-                <img src="../../../public/images/기부드림 로고 1.svg" alt="logo" />
+                <img src="../../../public/images/LogoGroup.svg" alt="logo" />
             </GibooDreamLogo>
             <InsertInfoContainer>
                 <Title>이지기부 회원가입</Title>
@@ -76,27 +76,27 @@ const SignUp = () => {
 
                     <SmallContainer>
                         <Subtitle>*이메일</Subtitle>
-                        <EmailInsertBox />
+                        <EmailInsertBox placeholder="possibleNeung@gmail.com" />
                     </SmallContainer>
 
                     <SmallContainer>
                         <Subtitle>*닉네임</Subtitle>
-                        <NickNameInsertBox />                       
+                        <NickNameInsertBox placeholder="닉네임을 입력해주세요" />
                     </SmallContainer>
 
                     <SmallContainer>
                         <Subtitle>*비밀번호</Subtitle>
-                        <PassWordInsertBox />
+                        <PassWordInsertBox placeholder="8-16자리의 비밀번호를 입력해주세요" />
                     </SmallContainer>
 
                     <SmallContainer>
                         <Subtitle>*비밀번호 확인</Subtitle>
-                        <PassWordCheckInsertBox />
+                        <PassWordCheckInsertBox placeholder="비밀번호를 한 번 더 입력해주세요" />
                     </SmallContainer>
 
                     <SmallContainer>
                         <Subtitle>*휴대폰 본인인증</Subtitle>
-                        <IdentifyButton bigblacktext="인증하기" />
+                        <IdentifyButton text="인증하기" />
                     </SmallContainer>
 
                 </FormContainerBig>
@@ -152,7 +152,7 @@ const SignUp = () => {
                     </Label>
                 </CheckboxContainer>
             </AgreementContainer>
-            <SignUpDoneButton bigblacktext="회원가입"/>
+            <SignUpDoneButton text="회원가입" />
             <SubmitButton type="submit">가입하기</SubmitButton>
         </Container>
     );
@@ -165,33 +165,41 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-y: auto; /* 세로로 넘치는 내용 스크롤 가능 */
-`
+`;
 
 const GibooDreamLogo = styled.div`
     img {
-        width: 10rem;
-        height: auto;
+        width: 9.5rem;
+        height: 4rem;
+        flex-shrink: 0;
     }
-`
+    margin: 2rem;
+`;
 
-const InsertInfoContainer = styled.div`
-
-`
+const InsertInfoContainer = styled.div``;
 
 const Title = styled.div`
+    color: #000;
+
+    /* WF Headings/Heading S */
+    font-family: Pretendard;
     font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 2.1rem */
     margin-bottom: 1rem;
-`
+`;
+
 const FormContainerBig = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-`
+`;
 
 const Subtitle = styled.div`
     font-size: 1rem;
     margin-bottom: 0.5rem;
-`
+`;
 
 const Form = styled.form`
     display: flex;
@@ -200,18 +208,18 @@ const Form = styled.form`
     align-items: center; /* 세로 축에서 가운데 정렬 */
     flex-wrap: wrap; /* 좁은 화면에서 줄바꿈 허용 */
     justify-content: flex-start; /* 왼쪽 정렬 */
-`
+`;
 
 const Label = styled.label`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-`
+`;
 
 const SubmitButton = styled.button`
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #2D3648;
+    background-color: #2d3648;
     color: white;
     border: none;
     border-radius: 0.375rem;
@@ -220,7 +228,7 @@ const SubmitButton = styled.button`
     &:hover {
         background-color: #1c2534;
     }
-`
+`;
 
 const AgreementContainer = styled.div`
     margin-top: 1rem;
@@ -229,20 +237,21 @@ const AgreementContainer = styled.div`
     max-width: 500px;
     overflow-y: auto; /* 세로로 넘치는 내용 스크롤 가능 */
     margin-bottom: 2rem;
-`
+`;
 
 const SmallTitle = styled.div`
     font-size: 1rem;
     margin-bottom: 1rem;
-`
+`;
 
 const CheckboxContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-`
+`;
 
 const SmallContainer = styled.div`
     display: flex;
     flex-direction: column;
-`
+    gap: 0.2rem;
+`;

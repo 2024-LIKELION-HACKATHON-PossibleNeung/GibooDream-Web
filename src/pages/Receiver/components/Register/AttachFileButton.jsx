@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-const BigRedButton = ({ text }) => {
+const AttachFileButton = ({ text, onClick }) => {
     return (
-        <Container>
+        <Container onClick={onClick}>
             {text}
         </Container>
     );
@@ -11,7 +11,7 @@ const BigRedButton = ({ text }) => {
 
 const Container = styled.div`
     display: flex;
-    width: 17.75rem;
+    width: 9.5rem;
     padding: 1rem 1.5rem;
     justify-content: center;
     align-items: center;
@@ -20,6 +20,7 @@ const Container = styled.div`
     background: var(--WF-Base-800, #EC4058);
     color: var(--WF-Base-White, #FFF);
     font-feature-settings: 'calt' off;
+    cursor: pointer; /* 클릭 가능한 요소로 표시 */
 
     /* WF Buttons/Button Large */
     font-family: Inter;
@@ -30,4 +31,4 @@ const Container = styled.div`
     letter-spacing: -0.01125rem;
 `
 
-export default BigRedButton
+export default AttachFileButton;
