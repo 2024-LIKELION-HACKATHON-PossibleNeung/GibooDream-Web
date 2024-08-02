@@ -76,22 +76,22 @@ const Register = () => {
 
                     <SmallContainer>
                         <Subtitle>*주소</Subtitle>
-                        <NickNameInsertBox placeholder="" />
+                        <NickNameInsertBox placeholder="경기도 용인시 처인구 모현읍 외대로 81" />
                     </SmallContainer>
 
                     <SmallContainer>
                         <Subtitle>*세부 주소</Subtitle>
-                        <PassWordInsertBox placeholder="" />
+                        <PassWordInsertBox placeholder="학생회관 4층 n호" />
                     </SmallContainer>
 
                     <SmallContainer>
                         <Subtitle>*연락처</Subtitle>
-                        <PassWordCheckInsertBox placeholder="" />
+                        <PassWordCheckInsertBox placeholder="01075546565" />
                     </SmallContainer>
 
                     <SmallContainer>
                         <Subtitle>*주민등록번호</Subtitle>
-                        <PassWordCheckInsertBox placeholder="" />
+                        <PassWordCheckInsertBox placeholder="991225-1234567" />
                     </SmallContainer>
 
                 </FormContainerBig>
@@ -231,7 +231,7 @@ const Label = styled.label`
 `;
 
 const AgreementContainer = styled.div`
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     width: 17.5rem;
