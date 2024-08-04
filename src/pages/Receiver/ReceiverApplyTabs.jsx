@@ -1,12 +1,21 @@
+import { useState } from "react";
 import styled from "styled-components";
 import EmailInsertBox from "./components/Register/SignUpInsertBox";
 import NickNameInsertBox from "./components/Register/SignUpInsertBox";
 import PassWordInsertBox from "./components/Register/SignUpInsertBox";
 import PassWordCheckInsertBox from "./components/Register/SignUpInsertBox";
-/*import Classifications from "./components/ReceiverApplyTabs/Classifications";
-import ChosenItemsInfoList from "./components/ReceiverApplyTabs/ChosenItemsInfoList";*/
+import DreamBagComposition from "./components/ReceiverApplyTabs/DreamBagComposition";
+import WarmBagComposition from "./components/ReceiverApplyTabs/WarmBagComposition";
 
 const ReceiverApplyTabs = () => {
+    // 상태 추가
+    const [selectedCart, setSelectedCart] = useState("");
+
+    // 라디오 버튼 클릭 핸들러
+    const handleRadioChange = (event) => {
+        setSelectedCart(event.target.value);
+    };
+
     return (
         <Container>
             <GibooDreamLogo>
@@ -43,33 +52,35 @@ const ReceiverApplyTabs = () => {
             </InsertInfoContainer>
 
             <SelectDonateCart>
-                <Title>후원신청 바구니 선택</Title>
+                <Title2>후원신청 바구니 선택</Title2>
                 <CheckBoxRow>
                     <RadioButtonContainer>
-                        <RadioButton type="radio" id="warmBag" name="donationCart" value="따숨바구니" />
+                        <RadioButton
+                            type="radio"
+                            id="warmBag"
+                            name="donationCart"
+                            value="따숨바구니"
+                            checked={selectedCart === "따숨바구니"}
+                            onChange={handleRadioChange}
+                        />
                         <Label htmlFor="warmBag">따숨바구니</Label>
                     </RadioButtonContainer>
                     <RadioButtonContainer>
-                        <RadioButton type="radio" id="dreamBag" name="donationCart" value="꿈바구니" />
+                        <RadioButton
+                            type="radio"
+                            id="dreamBag"
+                            name="donationCart"
+                            value="꿈바구니"
+                            checked={selectedCart === "꿈바구니"}
+                            onChange={handleRadioChange}
+                        />
                         <Label htmlFor="dreamBag">꿈바구니</Label>
                     </RadioButtonContainer>
                 </CheckBoxRow>
             </SelectDonateCart>
 
-            <CompositionWarmBag>
-                <Title>따숨바구니 구성</Title>
-                <WhatIsWarmBag>
-                    <img src="../../../src/assets/images/JaeWoo/WhatIsWarmBag.svg" alt="WhatIsWarmBag" />
-                </WhatIsWarmBag>
-            </CompositionWarmBag>
-
-            {/*<ClassificationContainer>
-                <Classifications/>
-            </ClassificationContainer>
-
-            <ChosenItemsQuantityPriceContainer>
-                <ChosenItemsInfoList/>
-            </ChosenItemsQuantityPriceContainer>*/}
+            {selectedCart === "따숨바구니" && <WarmBagComposition />}
+            {selectedCart === "꿈바구니" && <DreamBagComposition />}
         </Container>
     );
 };
@@ -82,6 +93,7 @@ const Container = styled.div`
     align-items: center;
     overflow-y: auto; /* 세로로 넘치는 내용 스크롤 가능 */
     margin-bottom: 2rem;
+    gap: 2rem;
 `;
 
 const GibooDreamLogo = styled.div`
@@ -105,6 +117,16 @@ const Title = styled.div`
     margin-bottom: 1rem;
 `;
 
+const Title2 = styled.div`
+    color: #000;
+    font-family: Pretendard;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 2.1rem */
+    margin-bottom: 0.5rem;
+`;
+
 const FormContainerBig = styled.div`
     display: flex;
     flex-direction: column;
@@ -125,6 +147,7 @@ const SmallContainer = styled.div`
 const SelectDonateCart = styled.div`
     display: flex;
     flex-direction: column;
+    width: 17.75rem;
 `;
 
 const CheckBoxRow = styled.div`
@@ -182,27 +205,3 @@ const Label = styled.label`
     line-height: 150%; /* 1.3125rem */
     letter-spacing: -0.00875rem;
 `;
-
-const CompositionWarmBag = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
-const WhatIsWarmBag = styled.div`
-    color: var(--WF-Base-600, #717D96);
-    font-feature-settings: 'calt' off;
-    font-family: "Single Day";
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5rem; /* 171.429% */
-    letter-spacing: -0.00875rem;
-`;
-
-{/*const ClassificationContainer = styled.div`
-    
-`
-
-const ChosenItemsQuantityPriceContainer = styled.div`
-    
-`*/}
