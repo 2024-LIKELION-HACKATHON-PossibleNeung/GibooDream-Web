@@ -1,64 +1,11 @@
-import { useState, useRef } from "react";
 import styled from "styled-components";
 import EmailInsertBox from "./components/Register/SignUpInsertBox";
 import NickNameInsertBox from "./components/Register/SignUpInsertBox";
 import PassWordInsertBox from "./components/Register/SignUpInsertBox";
 import PassWordCheckInsertBox from "./components/Register/SignUpInsertBox";
-import AttachFileButton from "./components/Register/AttachFileButton";
-import RegisterButton from "./components/Register/BigRedButton";
 
 const ReceiverApplyTabs = () => {
-    const [agreements, setAgreements] = useState({
-        basicLivelihood: false,
-        singleParentFamily: false,
-        underfedChild: false,
-        aloneElderly: false,
-        personalinfo: false,
-    });
-    const [uploadedFile, setUploadedFile] = useState(null);
-    const fileInputRef = useRef(null);
 
-    const handleSingleAgreementChange = (event) => {
-        const { name } = event.target;
-        // 모든 항목을 false로 설정하고, 선택한 항목만 true로 설정
-        setAgreements({
-            basicLivelihood: false,
-            singleParentFamily: false,
-            underfedChild: false,
-            aloneElderly: false,
-            personalinfo: agreements.personalinfo, // 개인정보 수집 및 활용 항목은 유지
-            [name]: true,
-        });
-    };
-
-    const handlePersonalInfoChange = (event) => {
-        const { checked } = event.target;
-        setAgreements((prev) => ({ ...prev, personalinfo: checked }));
-    };
-
-    const handleFileUpload = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            setUploadedFile(file);
-        }
-    };
-
-    const handleFileDelete = () => {
-        setUploadedFile(null);
-        if (fileInputRef.current) {
-            fileInputRef.current.value = null;
-        }
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (agreements.personalinfo) {
-            console.log("동의 항목:", agreements);
-            console.log("업로드된 파일:", uploadedFile);
-        } else {
-            alert("개인정보 수집 및 활용에 동의해 주세요.");
-        }
-    };
 
     return (
         <Container>
@@ -96,7 +43,7 @@ const ReceiverApplyTabs = () => {
 
                 </FormContainerBig>
             </InsertInfoContainer>
-            <AgreementContainer>
+            {/*<AgreementContainer>
                 <Title>증빙서류 첨부</Title>
                 <CheckboxContainer>
                     <Label>
@@ -136,8 +83,8 @@ const ReceiverApplyTabs = () => {
                         독거노인
                     </Label>
                 </CheckboxContainer>
-            </AgreementContainer>
-            <AttachFileContainer>
+            </AgreementContainer>*/}
+            {/*<AttachFileContainer>
                 <input
                     type="file"
                     style={{ display: "none" }}
@@ -159,8 +106,8 @@ const ReceiverApplyTabs = () => {
                     )}
                 </UploadedFileStatusBox>
                 <SmallExplain>위 체크한 항목과 관련된 모든 서류를 첨부해주세요.</SmallExplain>
-            </AttachFileContainer>
-            <LeftAlignContainer>
+            </AttachFileContainer>*/}
+            {/*<LeftAlignContainer>
                 <Label>
                     <input
                         type="checkbox"
@@ -170,12 +117,12 @@ const ReceiverApplyTabs = () => {
                     />
                     개인정보 수집 및 활용에 동의합니다.
                 </Label>
-            </LeftAlignContainer>
-            <RegisterButton
+            </LeftAlignContainer>*/}
+            {/*<RegisterButton
                 text="수혜자 신청"
                 onClick={handleSubmit}
                 disabled={!agreements.personalinfo}
-            />
+            />*/}
         </Container>
     );
 };
@@ -224,76 +171,8 @@ const Subtitle = styled.div`
     margin-bottom: 0.5rem;
 `;
 
-const Label = styled.label`
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-`;
-
-const AgreementContainer = styled.div`
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    width: 17.5rem;
-    overflow-y: auto; /* 세로로 넘치는 내용 스크롤 가능 */
-    margin-bottom: 2rem;
-    text-align: left;
-`;
-
-const SmallExplain = styled.div`
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-`;
-
-const CheckboxContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-`;
-
 const SmallContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
 `;
-
-const AttachFileContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
-const LeftAlignContainer = styled.div`
-    display: flex;
-    width: 17.5rem;
-    margin-bottom: 2rem;
-`;
-
-const UploadedFileStatusBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* 왼쪽과 오른쪽으로 아이템 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    width: 17.875rem;
-    height: 2.125rem;
-    flex-shrink: 0;
-    border: 1px solid #000;
-    background: #fff; /* 배경색 설정 */
-    padding: 0 1rem; /* 좌우 패딩 설정 */
-    margin: 1rem;
-`;
-
-const UploadedFileName = styled.div`
-    flex-grow: 1; /* 가능한 공간을 채우도록 설정 */
-    overflow: hidden; /* 넘치는 텍스트 숨김 */
-    text-overflow: ellipsis; /* 넘치는 텍스트 생략표시 (...) */
-    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-`;
-
-const UploadedFileDeleteButton = styled.div`
-    display: flex;
-    align-items: center;
-    cursor: pointer; /* 커서 포인터 모양으로 변경 */
-`;
-
-
-
