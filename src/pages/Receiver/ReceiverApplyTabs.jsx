@@ -3,8 +3,8 @@ import EmailInsertBox from "./components/Register/SignUpInsertBox";
 import NickNameInsertBox from "./components/Register/SignUpInsertBox";
 import PassWordInsertBox from "./components/Register/SignUpInsertBox";
 import PassWordCheckInsertBox from "./components/Register/SignUpInsertBox";
-import Classifications from "./components/ReceiverApplyTabs/Classifications";
-import ChosenItemsInfoList from "./components/ReceiverApplyTabs/ChosenItemsInfoList";
+/*import Classifications from "./components/ReceiverApplyTabs/Classifications";
+import ChosenItemsInfoList from "./components/ReceiverApplyTabs/ChosenItemsInfoList";*/
 
 const ReceiverApplyTabs = () => {
     return (
@@ -63,13 +63,13 @@ const ReceiverApplyTabs = () => {
                 </WhatIsWarmBag>
             </CompositionWarmBag>
 
-            <ClassificationContainer>
+            {/*<ClassificationContainer>
                 <Classifications/>
             </ClassificationContainer>
 
             <ChosenItemsQuantityPriceContainer>
                 <ChosenItemsInfoList/>
-            </ChosenItemsQuantityPriceContainer>
+            </ChosenItemsQuantityPriceContainer>*/}
         </Container>
     );
 };
@@ -199,10 +199,10 @@ const WhatIsWarmBag = styled.div`
     letter-spacing: -0.00875rem;
 `;
 
-const ClassificationContainer = styled.div`
+{/*const ClassificationContainer = styled.div`
     
 `
 
 const ChosenItemsQuantityPriceContainer = styled.div`
     
-`
+`*/}
