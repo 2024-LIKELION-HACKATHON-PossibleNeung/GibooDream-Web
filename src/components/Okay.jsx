@@ -8,8 +8,10 @@ const Okay = () => {
     );
 };
 
+export default Okay
+
 const Container = styled.div`
 
 `
 
-export default Okay
+
