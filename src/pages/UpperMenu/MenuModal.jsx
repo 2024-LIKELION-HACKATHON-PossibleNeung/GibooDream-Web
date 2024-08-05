@@ -20,11 +20,11 @@ const MenuModal = () => {
             <UnderBox/>
             <SmallButtons>
                 <Terms>
-                    <TermsIcon><img src="../../../src/assets/images/TermsIcon.svg" alt="TermsIcon"/></TermsIcon>
+                    <TermsIcon><img src="../../../src/assets/images/JaeWoo/TermsIcon.svg" alt="TermsIcon"/></TermsIcon>
                     <TermsKorean>이지기부 이용약관</TermsKorean>
                 </Terms>
                 <LogOut>
-                    <LogOutIcon><img src="../../../src/assets/images/LogOutIcon.svg" alt="LogOutIcon"/></LogOutIcon>
+                    <LogOutIcon><img src="../../../src/assets/images/JaeWoo/LogOutIcon.svg" alt="LogOutIcon"/></LogOutIcon>
                     <LogOutKorean>로그아웃</LogOutKorean>
                 </LogOut>
             </SmallButtons>

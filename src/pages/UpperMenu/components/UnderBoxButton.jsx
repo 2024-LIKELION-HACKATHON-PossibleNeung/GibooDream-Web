@@ -6,7 +6,7 @@ const UnderBoxButton = ({ buttonName }) => {
         <Container>
             <WidthBox>
                 <ButtonName>{buttonName}</ButtonName>
-                <RightArrow><img src="../../../src/assets/images/RightArrow.svg" alt="RightArrow"/></RightArrow>
+                <RightArrow><img src="../../../src/assets/images/JaeWoo/RightArrow.svg" alt="RightArrow"/></RightArrow>
             </WidthBox>
         </Container>
     );

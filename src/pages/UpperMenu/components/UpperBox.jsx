@@ -3,7 +3,7 @@ import styled from "styled-components";
 const UpperBox = () => {
     return (
         <Container>
-            <CloseButton><img src="../../../src/assets/images/UpperModalClose.svg" alt="Close"/></CloseButton>
+            <CloseButton><img src="../../../src/assets/images/JaeWoo/UpperModalClose.svg" alt="Close"/></CloseButton>
             <BigBox>
                 <UserInfo>
                     <Name>이름</Name>
@@ -11,17 +11,17 @@ const UpperBox = () => {
                 </UserInfo>
                 <Buttons>
                     <Notification>
-                        <NotiPic><img src="../../../src/assets/images/NotificationIcon.svg" alt="NotiIcon"/></NotiPic>
+                        <NotiPic><img src="../../../src/assets/images/JaeWoo/NotificationIcon.svg" alt="NotiIcon"/></NotiPic>
                         <NotiKorean>알림</NotiKorean>
                     </Notification>
-                    <Line><img src="../../../src/assets/images/ColumnLine.svg" alt="Line"/></Line>
+                    <Line><img src="../../../src/assets/images/JaeWoo/ColumnLine.svg" alt="Line"/></Line>
                     <ChangeInfo>
-                        <ChangeInfoPic><img src="../../../src/assets/images/ChangeInfoIcon.svg" alt="ChangeInfoIcon"/></ChangeInfoPic>
+                        <ChangeInfoPic><img src="../../../src/assets/images/JaeWoo/ChangeInfoIcon.svg" alt="ChangeInfoIcon"/></ChangeInfoPic>
                         <ChangeInfoKorean>회원정보변경</ChangeInfoKorean>
                     </ChangeInfo>
-                    <Line><img src="../../../src/assets/images/ColumnLine.svg" alt="Line"/></Line>
+                    <Line><img src="../../../src/assets/images/JaeWoo/ColumnLine.svg" alt="Line"/></Line>
                     <Invite>
-                        <InvitePic><img src="../../../src/assets/images/InviteIcon.svg" alt="InviteIcon"/></InvitePic>
+                        <InvitePic><img src="../../../src/assets/images/JaeWoo/InviteIcon.svg" alt="InviteIcon"/></InvitePic>
                         <InvitePicKorean>친구초대</InvitePicKorean>
                     </Invite>
                 </Buttons>
@@ -37,6 +37,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 0.7rem;
 `
 const CloseButton = styled.div`
     width: 1.5rem;
@@ -50,7 +51,6 @@ const Line = styled.div`
 const BigBox = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: grey;
     height: 16vh;
     width: 17rem;
     gap: 1rem;

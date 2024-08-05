@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import styled from "styled-components";
 // Import your button components
 import ReviewButton from "../../components/JaeWoo/BigRedButton";
-import InsertButton from "../../components/JaeWoo/MidRedButton";
 
 const WriteReview = () => {
     const [selectedImage, setSelectedImage] = useState(null);
