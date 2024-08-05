@@ -16,6 +16,9 @@ import Register from './pages/Receiver/Register';
 import DonatePage from './pages/Donator/DonatePage';
 
 import ReceiverApplyTabs from './pages/Receiver/ReceiverApplyTabs';
+import WriteReview from './pages/Receiver/WriteReview'
+import MoneyCheck from './pages/Receiver/MoneyCheck'
+
 
 //components (Recoil managed)
 /* import PascalCase from './pages/Login/components/컴포넌트폴더명/컴포넌트명*/ 
@@ -40,6 +43,8 @@ function App() {
                 <Route path="/wishcartdetail" element={<WishCartDetail />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/receiverapplytabs" element={<ReceiverApplyTabs/>} />
+                <Route path="/writereview" element={<WriteReview/>} />
+                <Route path="/moneycheck" element={<MoneyCheck/>} />
 
                 {/* Donator 페이지 */}
                 <Route path="/donatepage" element={<DonatePage />} />

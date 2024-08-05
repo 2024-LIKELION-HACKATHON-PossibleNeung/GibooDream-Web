@@ -43,7 +43,7 @@ const DreamBagComposition = () => {
 export default DreamBagComposition;
 
 const Container = styled.div`
-    width: 72.5%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
