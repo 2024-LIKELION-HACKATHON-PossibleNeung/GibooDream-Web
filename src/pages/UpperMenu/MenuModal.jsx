@@ -1,7 +1,7 @@
 import styled, {keyframes} from "styled-components";
-import UpperBox from "./components/UpperBox"
-import MidBox from "./components/MidBox"
-import UnderBox from "./components/UnderBox"
+import UpperBox from "./components/UpperBox";
+import MidBox from "./components/MidBox";
+import UnderBox from "./components/UnderBox";
 
 const slideIn = keyframes`
     from {
@@ -28,9 +28,12 @@ const MenuModal = () => {
                     <LogOutKorean>로그아웃</LogOutKorean>
                 </LogOut>
             </SmallButtons>
+            <Footer><img src="../../../src/assets/images/JaeWoo/WFFooter.svg"/></Footer>
         </Container>
     );
 };
+
+export default MenuModal;
 
 const Container = styled.div`
     display: flex;
@@ -40,13 +43,22 @@ const Container = styled.div`
     right: 0;
     width: 80%;
     max-width: 351px;
-    height: calc(100% - 0px); /* 부모 요소의 높이를 가득 채움 */
+    height: calc(100% - 0px);
     background-color: #E2E7F0;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     animation: ${slideIn} 0.3s ease-out forwards;
     z-index: 1000;
-    overflow-y: auto; /* 컨텐츠가 넘칠 경우 스크롤바 표시 */
+    overflow-y: scroll; /* 스크롤바 숨기기 전에 스크롤 기능 활성화 */
     gap: 1rem;
+
+    /* 웹킷 기반 브라우저에서 스크롤바 숨기기 */
+    ::-webkit-scrollbar {
+        display: none; /* 스크롤바를 숨깁니다 */
+    }
+
+    /* Firefox에서 스크롤바 숨기기 */
+    scrollbar-width: none; /* 스크롤바를 숨깁니다 */
+    -ms-overflow-style: none; /* Internet Explorer에서 스크롤바 숨기기 */
 `;
 
 const SmallButtons = styled.div`
@@ -76,11 +88,11 @@ const TermsKorean = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 1.125rem */
-`
+`;
 
 const LogOutIcon = styled.div`
     
-`
+`;
 
 const LogOut = styled.div`
     display: flex;
@@ -98,6 +110,15 @@ const LogOutKorean = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 1.125rem */
-`
+`;
 
-export default MenuModal;
+const Footer = styled.div`
+    width: 100%;
+    height: auto; /* 원하는 높이 설정 */
+    background-color: #F5F5F5; /* 배경색 추가 (선택 사항) */
+    
+    img {
+        max-width: 100%;
+        height: auto; /* 이미지가 컨테이너의 너비에 맞게 조정됩니다 */
+    }
+`;
