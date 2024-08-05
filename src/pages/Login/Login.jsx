@@ -35,6 +35,7 @@ const Login = () => {
                     <FindIdButton onClick={handleFindIdClick}>아이디 찾기</FindIdButton>
                     <FindPwButton onClick={handleFindPwClick}>비밀번호 찾기</FindPwButton>
             </FindingContainerRow>
+            <Footer><img src="../../../src/assets/images/JaeWoo/WFFooter.svg"/></Footer>
         </Container>
     );
 };
@@ -115,3 +116,12 @@ const FindPwButton = styled.div`
     }
 `
 
+const Footer = styled.div`
+    margin-top: 1rem;
+    width:100
+    
+    img {
+        max-width: 100%;
+        height: auto; /* 이미지가 컨테이너의 너비에 맞게 조정됩니다 */
+    }
+`;
