@@ -1,9 +1,12 @@
-import { useState } from "react";
-import styled from "styled-components";
-import Modal from "./MenuModal"
+// src/pages/UpperMenu/UpperMenu.js
+
+import { useRecoilState } from 'recoil';
+import styled from 'styled-components';
+import Modal from './MenuModal';
+import { modalState } from '../../recoilAtom/modalState';
 
 const UpperMenu = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useRecoilState(modalState);
 
     const handleButtonClick = () => {
         setIsModalOpen(!isModalOpen);
@@ -18,8 +21,6 @@ const UpperMenu = () => {
 };
 
 export default UpperMenu;
-
-
 
 const Container = styled.div`
     display: flex;
@@ -38,4 +39,3 @@ const Button = styled.button`
     border-radius: 0.25rem;
     cursor: pointer;
 `;
-
