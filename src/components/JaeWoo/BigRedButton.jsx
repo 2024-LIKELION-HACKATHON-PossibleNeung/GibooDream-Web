@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-const BigRedButton = ({ text }) => {
+const BigRedButton = ({ text, onClick }) => {
     return (
-        <Container>
+        <Container onClick={onClick}>
             {text}
         </Container>
     );
@@ -21,13 +21,16 @@ const Container = styled.div`
     color: var(--WF-Base-White, #FFF);
     font-feature-settings: 'calt' off;
 
-    /* WF Buttons/Button Large */
     font-family: Inter;
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.5rem; /* 133.333% */
+    line-height: 1.5rem;
     letter-spacing: -0.01125rem;
+    cursor: pointer; /* Add cursor style to indicate button */
+    &:hover {
+        background-color: #d42e4e; /* Optional hover effect */
+    }
 `
 
-export default BigRedButton
+export default BigRedButton;

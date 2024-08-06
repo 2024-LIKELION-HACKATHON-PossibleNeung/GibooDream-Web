@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import KakaoLoginButton from "./components/Login/KakaoLoginButton";
 import LoginButton from "./components/Login/LoginButton";
 import SignUpButton from "./components/Login/SignUpButton";
-import IdInsertBox from "./components/Login/BigInsertBox";
-import PwInsertBox from "./components/Login/BigInsertBox";
+import BigInsertBox from "./components/Login/BigInsertBox";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,7 +13,15 @@ const Login = () => {
     };
 
     const handleFindPwClick = () => {
-        navigate("/FindPw")
+        navigate("/FindPw");
+    };
+
+    const handleLoginClick = () => {
+        navigate("/"); // 메인 페이지로 이동
+    };
+
+    const handleSignUpClick = () => {
+        navigate("/signup"); // 회원가입 페이지로 이동
     };
 
     return (
@@ -23,12 +30,12 @@ const Login = () => {
             <BigButtonContainer>
                 <KakaoLoginButton bigblacktext="카카오톡 로그인"/>
                 <IdPwInsertColumnContainer>
-                    <IdInsertBox/>
-                    <PwInsertBox/>
+                    <BigInsertBox type="text" placeholder="아이디 입력" />
+                    <BigInsertBox type="password" placeholder="비밀번호 입력" />
                 </IdPwInsertColumnContainer>
                 <LoginButtonColumnContainer>
-                    <LoginButton bigblacktext="로그인"/>
-                    <SignUpButton bigblacktext="회원가입"/>
+                    <LoginButton bigblacktext="로그인" onClick={handleLoginClick} />
+                    <SignUpButton bigblacktext="회원가입" onClick={handleSignUpClick} />
                 </LoginButtonColumnContainer>
             </BigButtonContainer>
             <FindingContainerRow>
@@ -46,7 +53,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`
+`;
 
 const GibooDreamLogo = styled.div`
     img {
@@ -55,31 +62,34 @@ const GibooDreamLogo = styled.div`
     flex-shrink: 0;
     }
     margin: 2rem;
-`
+`;
 
 const BigButtonContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
-`
+`;
 
 const IdPwInsertColumnContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-`
+`;
+
 const LoginButtonColumnContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-`
+`;
+
 const FindingContainerRow = styled.div`
     display: flex;
     flex-direction: row;
     gap: 1.7rem;
     margin-left: 7rem;
     margin-top: 1rem;
-`
+`;
+
 const FindIdButton = styled.div`
     color: var(--WF-Base-600, #717D96);
     font-feature-settings: 'calt' off;
@@ -96,7 +106,7 @@ const FindIdButton = styled.div`
     &:hover {
         color: #007BFF; /* 호버 시 텍스트 색상 변경, 원하는 색상으로 설정 */
     }
-`
+`;
 
 const FindPwButton = styled.div`
     color: var(--WF-Base-600, #717D96);
@@ -114,7 +124,7 @@ const FindPwButton = styled.div`
     &:hover {
         color: #007BFF; /* 호버 시 텍스트 색상 변경, 원하는 색상으로 설정 */
     }
-`
+`;
 
 const Footer = styled.div`
     margin-top: 1rem;

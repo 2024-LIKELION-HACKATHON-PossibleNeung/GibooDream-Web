@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
-const BigInsertBox = () => {
+// eslint-disable-next-line react/prop-types
+const BigInsertBox = ({ type, placeholder }) => {
     return (
-        <Container>
-
-        </Container>
+        <Input type={type} placeholder={placeholder} />
     );
 };
 
-const Container = styled.div`
+const Input = styled.input`
     width: 17.75rem;
-    height: 3.5rem;
-    flex-shrink: 0;
-    border-radius: 0.1875rem 0rem 0rem 0.1875rem;
-    border: 1px solid var(--WF-Base-500, #A0ABC0);
-    background: var(--WF-Base-100, #F7F9FC);
-`
+    height: 2.8125rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+`;
 
 export default BigInsertBox;

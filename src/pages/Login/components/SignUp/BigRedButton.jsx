@@ -1,9 +1,11 @@
+// components/SignUp/BigRedButton.js
+
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-const BigRedButton = ({ text }) => {
+const BigRedButton = ({ text, onClick }) => {
     return (
-        <Container>
+        <Container onClick={onClick}>
             {text}
         </Container>
     );
@@ -12,12 +14,14 @@ const BigRedButton = ({ text }) => {
 const Container = styled.div`
     display: flex;
     width: 17.75rem;
+    height: 2.8125rem;
     padding: 1rem 1.5rem;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    flex-shrink: 0;
     border-radius: 0.375rem;
-    background: var(--WF-Base-800, #EC4058);
+    background: var(--WF-Base-800, #ec4058);
     color: var(--WF-Base-White, #FFF);
     font-feature-settings: 'calt' off;
 
@@ -28,6 +32,9 @@ const Container = styled.div`
     font-weight: 700;
     line-height: 1.5rem; /* 133.333% */
     letter-spacing: -0.01125rem;
-`
+    cursor: pointer;
 
-export default BigRedButton
+    margin-bottom: 2rem;
+`;
+
+export default BigRedButton;

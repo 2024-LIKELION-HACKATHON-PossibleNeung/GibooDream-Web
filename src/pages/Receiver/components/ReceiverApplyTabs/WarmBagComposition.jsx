@@ -2,8 +2,10 @@ import styled from "styled-components";
 import ApplyButton from "../../../../components/JaeWoo/BigRedButton";
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { selectedCartState } from '../../../../recoilAtom/selectedCartState';  // 적절한 경로로 수정하세요
+import { selectedCartState } from '../../../../recoilAtom/selectedCartState';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { activeTabState } from '../../../../recoilAtom/activeTabState';
 
 const WarmBagComposition = () => {
     const [searchKeyword, setSearchKeyword] = useState('');
@@ -11,12 +13,18 @@ const WarmBagComposition = () => {
     const [selectedItems, setSelectedItems] = useState([]);
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const setSelectedCart = useSetRecoilState(selectedCartState);
+    // eslint-disable-next-line no-unused-vars
+    const [activeTab, setActiveTab] = useRecoilState(activeTabState);
+
+    const handleApplyClick = () => {
+        setActiveTab('current'); // '신청 현황' 탭으로 변경
+    };
 
     const handleSearch = async () => {
         try {
             const response = await axios.get(`http://3.36.162.69:80/api/v1/crawl/?search=${searchKeyword}`);
             setSearchResults(response.data.data);
-            setDropdownVisible(true); // Show dropdown when search results are available
+            setDropdownVisible(true);
         } catch (error) {
             console.error('Error fetching search results:', error.message);
             console.error('Error details:', error);
@@ -25,7 +33,7 @@ const WarmBagComposition = () => {
 
     const handleSelectItem = (item) => {
         setSelectedItems(prevItems => [...prevItems, item]);
-        setDropdownVisible(false); // Hide dropdown after selection
+        setDropdownVisible(false);
     };
 
     const handleSelectDreamBag = () => {
@@ -93,12 +101,13 @@ const WarmBagComposition = () => {
                 </LetsUseDreamBag>
             </FlexStartContainer>
 
-            <ApplyButton text={"후원 신청하기"}/>
+            <ApplyButton text={"후원 신청하기"} onClick={handleApplyClick} />
         </Container>
     );
 };
 
 export default WarmBagComposition;
+
 
 const Container = styled.div`
     width: 100%;

@@ -1,8 +1,16 @@
 import styled from "styled-components";
 import MakeDreamBagButton from "../../../../components/JaeWoo/MidRedButton";
 import ApplyButton from "../../../../components/JaeWoo/BigRedButton";
+import { useRecoilState } from 'recoil';
+import { activeTabState } from '../../../../recoilAtom/activeTabState';
 
 const DreamBagComposition = () => {
+    const [activeTab, setActiveTab] = useRecoilState(activeTabState);
+
+    const handleApplyClick = () => {
+        setActiveTab('current'); // '신청 현황' 탭으로 변경
+    };
+
     return (
         <Container>
             <CompositionWarmBag>
@@ -35,7 +43,7 @@ const DreamBagComposition = () => {
                 </CenterAlignContainer>
             </StoryOfDreamer>
 
-            <ApplyButton text={"후원  신청하기"}/>
+            <ApplyButton text={"후원 신청하기"} onClick={handleApplyClick} />
         </Container>
     );
 };
