@@ -137,7 +137,7 @@ const PlaceholderText = styled.textarea`
     border: none;
     border-radius: 0.375rem;
     background: var(--WF-Base-White, #FFF);
-    color: var(--WF-Base-500, #A0ABC0);
+    color: black;
     font-family: Pretendard;
     font-size: 0.875rem;
     font-style: normal;
