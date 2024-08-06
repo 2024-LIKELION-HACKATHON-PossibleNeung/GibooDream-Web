@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ReceiverLogined = () => {
+const Okay = () => {
     return (
         <Container>
 
@@ -8,8 +8,10 @@ const ReceiverLogined = () => {
     );
 };
 
-export default ReceiverLogined;
+export default Okay
 
 const Container = styled.div`
 
 `
+
+
