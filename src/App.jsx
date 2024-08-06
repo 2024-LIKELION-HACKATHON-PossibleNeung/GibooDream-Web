@@ -4,21 +4,26 @@ import { RecoilRoot } from 'recoil'; // RecoilRoot를 추가하여 Recoil 상태
 // pages
 import MainPage from './pages/MainPage/MainPage';
 
-import JustLogined from './pages/UpperMenu/JustLogined';
-import NotLogined from './pages/UpperMenu/NotLogined';
-import ReceiverLogined from './pages/UpperMenu/ReceiverLogined';
+import UpperMenu from './pages/UpperMenu/UpperMenu'
 
 import Login from './pages/Login/Login';
 import SignUp from './pages/Login/SignUp';
 
 import WishCartList from './pages/Receiver/WishCartList';
-import WishCartDetail from './pages/Receiver/WishCartDetail';
+import WishCartDetailDreamBag from './pages/Receiver/WishCartDetailDreamBag';
+import WishCartDetailDdasumBag from './pages/Receiver/WishCartDetailDdasumBag';
 import Register from './pages/Receiver/Register';
 
 import DonatePage from './pages/Donator/DonatePage';
 
+import ReceiverApplyTabs from './pages/Receiver/ReceiverApplyTabs';
+import WriteReview from './pages/Receiver/WriteReview';
+import MoneyCheck from './pages/Receiver/MoneyCheck';
+
+import ApiTest from "./pages/ApiTest";
+
 //components (Recoil managed)
-/* import PascalCase from './recoilComponents/컴포넌트명*/
+/* import PascalCase from './pages/Login/components/컴포넌트폴더명/컴포넌트명*/ 
 
 function App() {
     return (
@@ -29,9 +34,7 @@ function App() {
                 <Route index element={<MainPage />} />
 
                 {/* 상위메뉴 페이지 (UpperMenu) */}
-                <Route path="/justlogined" element={<JustLogined />} />
-                <Route path="/notlogined" element={<NotLogined />} />
-                <Route path="/receiverlogined" element={<ReceiverLogined />} />
+                <Route path="/uppermenu" element={<UpperMenu />} />
 
                 {/* 로그인, 회원가입 페이지 */}
                 <Route path="/login" element={<Login />} />
@@ -39,11 +42,18 @@ function App() {
 
                 {/* Receiver 페이지 */}
                 <Route path="/wishcartlist" element={<WishCartList />} />
-                <Route path="/wishcartdetail" element={<WishCartDetail />} />
+                <Route path="/wishcartdetailDreamBag" element={<WishCartDetailDreamBag />} />
+                <Route path="/wishcartdetailDdasumBag" element={<WishCartDetailDdasumBag />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/receiverapplytabs" element={<ReceiverApplyTabs/>} />
+                <Route path="/writereview" element={<WriteReview/>} />
+                <Route path="/moneycheck" element={<MoneyCheck/>} />
 
                 {/* Donator 페이지 */}
                 <Route path="/donatepage" element={<DonatePage />} />
+
+                {/* ApiTest 페이지 */}
+                <Route path="/apitest" element={<ApiTest />} />
             </Routes>
             {/* <PascalCase /> */}
         </div>
