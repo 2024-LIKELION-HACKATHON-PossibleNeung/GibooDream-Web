@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import EmailInsertBox from "./components/Register/SignUpInsertBox";
 import NickNameInsertBox from "./components/Register/SignUpInsertBox";
@@ -8,6 +9,8 @@ import AttachFileButton from "./components/Register/AttachFileButton";
 import RegisterButton from "./components/Register/BigRedButton";
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const [agreements, setAgreements] = useState({
         basicLivelihood: false,
         singleParentFamily: false,
@@ -52,13 +55,21 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("Submit Handler Called");
         if (agreements.personalinfo) {
             console.log("동의 항목:", agreements);
             console.log("업로드된 파일:", uploadedFile);
+            navigate("/receiverapplytabs");
         } else {
             alert("개인정보 수집 및 활용에 동의해 주세요.");
         }
     };
+    
+    
+    
+
+
+
 
     return (
         <Container>

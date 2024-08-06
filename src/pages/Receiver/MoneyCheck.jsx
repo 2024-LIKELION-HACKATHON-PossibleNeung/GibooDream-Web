@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom'; // useHistory 대신 useNavigate를 임포트
 import styled from "styled-components";
 import ReviewButton from "../../components/JaeWoo/BigRedButton";
 
 const MoneyCheck = () => {
+    const navigate = useNavigate(); // history 대신 navigate 함수를 생성
+
+    const handleReviewClick = () => {
+        navigate('/writereview'); // history.push 대신 navigate를 사용
+    };
+    
     return (
         <Container>
             <GibooDreamLogo>
@@ -39,16 +46,13 @@ const MoneyCheck = () => {
                     <WhatTotal>모금 완료 물품 합계</WhatTotal>
                     <TotalPriceDone>ㅋㅋㅋㅋ원</TotalPriceDone>
                 </TotalContainerRow>
-
             </TotalContainerColumn>
-
-            <ReviewButton text={"후기 작성하기"}/>
-
+            <ReviewButton text={"후기 작성하기"} onClick={handleReviewClick} />
         </Container>
     );
 };
 
-export default MoneyCheck
+export default MoneyCheck;
 
 const Container = styled.div`
     display: flex;

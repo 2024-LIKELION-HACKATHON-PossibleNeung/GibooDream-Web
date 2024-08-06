@@ -1,13 +1,12 @@
-import { useState } from "react";
 import styled from "styled-components";
 import ApplyTabPage from "./components/ReceiverApplyTabs/ApplyTabPage";
 import CurrentApplyPage from "./components/ReceiverApplyTabs/CurrentApplyTabPage";
+import { useRecoilState } from 'recoil';
+import { activeTabState } from '../../recoilAtom/activeTabState'; // 적절한 경로로 수정하세요
 
 const ReceiverApplyTabs = () => {
-    // 탭의 선택 상태를 관리하는 상태
-    const [activeTab, setActiveTab] = useState("apply"); // 기본 탭은 "apply"로 설정
+    const [activeTab, setActiveTab] = useRecoilState(activeTabState);
 
-    // 탭 클릭 시 상태 변경 함수
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
     };

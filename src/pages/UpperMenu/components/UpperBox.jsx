@@ -1,15 +1,29 @@
-// src/pages/UpperMenu/components/UpperBox.js
-
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { useSetRecoilState } from 'recoil';
 import { modalState } from '../../../recoilAtom/modalState';
 
 const UpperBox = () => {
     const setIsModalOpen = useSetRecoilState(modalState);
+    const [profile, setProfile] = useState({ email: '', nickname: '' });
 
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const response = await axios.get('/api/v1/users/profile/');
+                setProfile(response.data);
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+            }
+        };
+
+        fetchProfile();
+    }, []);
 
     return (
         <Container>
@@ -18,8 +32,8 @@ const UpperBox = () => {
             </CloseButton>
             <BigBox>
                 <UserInfo>
-                    <Name>이름</Name>
-                    <Email>이메일</Email>
+                    <Name>{profile.nickname}</Name>
+                    <Email>{profile.email}</Email>
                 </UserInfo>
                 <Buttons>
                     <Notification>

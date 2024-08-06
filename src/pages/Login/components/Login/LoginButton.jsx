@@ -1,9 +1,11 @@
+// components/Login/LoginButton.js
+
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-const BigButtonBlack = ({ bigblacktext }) => {
+const LoginButton = ({ bigblacktext, onClick }) => {
     return (
-        <Container>
+        <Container onClick={onClick}>
             {bigblacktext}
         </Container>
     );
@@ -18,7 +20,6 @@ const Container = styled.div`
     align-items: center;
     gap: 0.5rem;
     flex-shrink: 0;
-
     border-radius: 0.375rem;
     background: var(--WF-Base-800, #ec4058);
     color: var(--WF-Base-White, #FFF);
@@ -31,6 +32,7 @@ const Container = styled.div`
     font-weight: 700;
     line-height: 1.5rem; /* 133.333% */
     letter-spacing: -0.01125rem;
-`
+    cursor: pointer;
+`;
 
-export default BigButtonBlack
+export default LoginButton;

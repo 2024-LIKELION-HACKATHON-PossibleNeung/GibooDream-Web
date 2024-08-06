@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import EmailInsertBox from "./components/SignUp/SignUpInsertBox";
 import NickNameInsertBox from "./components/SignUp/SignUpInsertBox";
 import PassWordInsertBox from "./components/SignUp/SignUpInsertBox";
 import PassWordCheckInsertBox from "./components/SignUp/SignUpInsertBox";
 import IdentifyButton from "./components/SignUp/BigRedButton";
-import SignUpDoneButton from "./components/SignUp/BigRedButton";
+import BigRedButton from "./components/SignUp/BigRedButton";
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const [userType, setUserType] = useState("");
     const [agreements, setAgreements] = useState({
         over14: false,
@@ -30,6 +32,7 @@ const SignUp = () => {
         event.preventDefault();
         console.log("선택된 사용자 타입:", userType);
         console.log("동의 항목:", agreements);
+        navigate("/login");
     };
 
     return (
@@ -39,11 +42,11 @@ const SignUp = () => {
             </GibooDreamLogo>
             <InsertInfoContainer>
                 <Title>이지기부 회원가입</Title>
-                <FormContainerBig>
+                <FormContainerBig onSubmit={handleSubmit}>
                     
                     <SmallContainer>
                         <Subtitle>*구분</Subtitle>
-                        <Form onSubmit={handleSubmit}>
+                        <Form>
                             <Label>
                                 <input
                                     type="radio"
@@ -152,8 +155,7 @@ const SignUp = () => {
                     </Label>
                 </CheckboxContainer>
             </AgreementContainer>
-            <SignUpDoneButton text="회원가입" />
-            <SubmitButton type="submit">가입하기</SubmitButton>
+            <BigRedButton text="회원가입 완료" onClick={handleSubmit} />
         </Container>
     );
 };
@@ -190,7 +192,7 @@ const Title = styled.div`
     margin-bottom: 1rem;
 `;
 
-const FormContainerBig = styled.div`
+const FormContainerBig = styled.form`
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -201,7 +203,7 @@ const Subtitle = styled.div`
     margin-bottom: 0.5rem;
 `;
 
-const Form = styled.form`
+const Form = styled.div`
     display: flex;
     flex-direction: row; /* 라디오 버튼들을 한 줄로 정렬 */
     gap: 1rem; /* 라디오 버튼 간 간격 조절 */
@@ -214,20 +216,6 @@ const Label = styled.label`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-`;
-
-const SubmitButton = styled.button`
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #2d3648;
-    color: white;
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #1c2534;
-    }
 `;
 
 const AgreementContainer = styled.div`
