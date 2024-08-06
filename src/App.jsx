@@ -10,7 +10,8 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/Login/SignUp';
 
 import WishCartList from './pages/Receiver/WishCartList';
-import WishCartDetail from './pages/Receiver/WishCartDetail';
+import WishCartDetailDreamBag from './pages/Receiver/WishCartDetailDreamBag';
+import WishCartDetailDdasumBag from './pages/Receiver/WishCartDetailDdasumBag';
 import Register from './pages/Receiver/Register';
 
 import DonatePage from './pages/Donator/DonatePage';
@@ -40,7 +41,8 @@ function App() {
 
                 {/* Receiver 페이지 */}
                 <Route path="/wishcartlist" element={<WishCartList />} />
-                <Route path="/wishcartdetail" element={<WishCartDetail />} />
+                <Route path="/wishcartdetailDreamBag" element={<WishCartDetailDreamBag />} />
+                <Route path="/wishcartdetailDdasumBag" element={<WishCartDetailDdasumBag />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/receiverapplytabs" element={<ReceiverApplyTabs/>} />
                 <Route path="/writereview" element={<WriteReview/>} />
