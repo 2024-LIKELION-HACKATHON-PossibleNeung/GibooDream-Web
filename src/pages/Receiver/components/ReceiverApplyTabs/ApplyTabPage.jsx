@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRecoilState } from 'recoil';
+import { selectedCartState } from '../../../../recoilAtom/selectedCartState';  // 적절한 경로로 수정하세요
 import styled from "styled-components";
 import EmailInsertBox from "../Register/SignUpInsertBox";
 import NickNameInsertBox from "../Register/SignUpInsertBox";
@@ -8,7 +9,7 @@ import DreamBagComposition from "../ReceiverApplyTabs/DreamBagComposition";
 import WarmBagComposition from "../ReceiverApplyTabs/WarmBagComposition";
 
 const ApplyTabPage = () => {
-    const [selectedCart, setSelectedCart] = useState("");
+    const [selectedCart, setSelectedCart] = useRecoilState(selectedCartState);
 
     const handleRadioChange = (event) => {
         setSelectedCart(event.target.value);
