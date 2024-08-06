@@ -74,6 +74,7 @@ const MainPage = () => {
             
                 <Header>
                     <Title>기부드림 따숨바구니</Title>
+                    <MoreButton>더보기</MoreButton>
                 </Header>
                 <Description>작은 금액이라도 좋아요. 꿈을 펼칠 수 있도록 생필품을 후원해주세요</Description>
 
