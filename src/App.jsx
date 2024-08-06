@@ -17,9 +17,10 @@ import Register from './pages/Receiver/Register';
 import DonatePage from './pages/Donator/DonatePage';
 
 import ReceiverApplyTabs from './pages/Receiver/ReceiverApplyTabs';
-import WriteReview from './pages/Receiver/WriteReview'
-import MoneyCheck from './pages/Receiver/MoneyCheck'
+import WriteReview from './pages/Receiver/WriteReview';
+import MoneyCheck from './pages/Receiver/MoneyCheck';
 
+import ApiTest from "./pages/ApiTest";
 
 //components (Recoil managed)
 /* import PascalCase from './pages/Login/components/컴포넌트폴더명/컴포넌트명*/ 
@@ -50,6 +51,9 @@ function App() {
 
                 {/* Donator 페이지 */}
                 <Route path="/donatepage" element={<DonatePage />} />
+
+                {/* ApiTest 페이지 */}
+                <Route path="/apitest" element={<ApiTest />} />
             </Routes>
             {/* <PascalCase /> */}
         </div>
